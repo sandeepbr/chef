@@ -14,7 +14,14 @@ service 'httpd' do
 action [:enable, :start]
 end
 
-cookbook_file '/var/www/html/index.html' do
-source 'index.html.raw'
-mode 0644
-end
+#cookbook_file '/var/www/html/index.html' do
+#source 'index.html.raw'
+#mode 0644
+#end
+
+ark 'indexzip' do
+url node['download']['template_url']
+home_dir node['apache']['docroot']
+prefix_root node['apache']['prefix']
+owner node['apache']['user']
+end 
