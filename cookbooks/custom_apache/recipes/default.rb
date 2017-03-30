@@ -19,9 +19,13 @@ end
 #mode 0644
 #end
 
+execute 'deletehtml' do
+command 'rm -rf /var/www/html'
+end
+
 ark 'indexzip' do
 url node['download']['template_url']
 home_dir node['apache']['docroot']
-prefix_root node['apache']['prefix']
+#prefix_root node['apache']['prefix']
 owner node['apache']['user']
 end 
