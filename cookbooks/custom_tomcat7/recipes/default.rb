@@ -6,7 +6,12 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-include java
+
+#include_recipe 'java'
+
+package 'java-1.7.0-openjdk' do
+ action :install
+end
 
 download_url = 'http://apache.mirrors.pair.com/tomcat/tomcat-7/v7.0.76/bin/apache-tomcat-7.0.76.zip'
 group 'tomcat'
